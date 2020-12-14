@@ -1,13 +1,15 @@
-const { app, BrowserWindow } = require('electron')
+if (require('electron-squirrel-startup')) return;
 
+
+const { app, BrowserWindow } = require('electron')
 const os = require('os');
 
 const child_process = require('child_process');
 const dialog = app.dialog;
-
+process.env["NODE_CONFIG_DIR"] = __dirname + "/config/";
 const config = require('config');
 
-let app_url
+let app_url = `https://www.electronjs.org/`;
 let splash
 
 const platforms = {
@@ -83,7 +85,7 @@ function run_script(command, args, callback) {
     child.stderr.setEncoding('utf8');
     child.stderr.on('data', (data) => {
         // Return some data to the renderer process with the mainprocess-response ID
-        mainWindow.webContents.send('mainprocess-response', data);
+        // mainWindow.webContents.send('mainprocess-response', data);
         //Here is the output from the command
         console.log(data);  
     });

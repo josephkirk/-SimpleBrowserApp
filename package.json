@@ -8,7 +8,9 @@
     "start": "lessc stylesheet/styles.less stylesheet/styles.css && electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "keywords": [],
   "author": "Nguyen Phi Hung",
